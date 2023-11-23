@@ -17,7 +17,7 @@ lualine.setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { { "branch",
-      icon = "  " } },
+      icon = "" } },
 
     lualine_c = {
       { function()
