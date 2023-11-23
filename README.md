@@ -25,4 +25,5 @@ Solarized-Osaka é o tema principal utilizado nestas configurações, proporcion
 Certifique-se de que os seguintes requisitos estejam instalados em seu sistema antes de utilizar estas configurações:
 
 Node.js: Necessário para alguns plugins que dependem de componentes JavaScript.
+
 Compilador C: Algumas extensões e plugins podem requerer a compilação de código C.
