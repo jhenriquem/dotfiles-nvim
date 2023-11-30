@@ -16,6 +16,25 @@ telescope.setup {
         ["q"] = actions.close
       },
     },
+
+  },
+  pickers = {
+
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+      hidden = true
+    },
+    buffers = {
+      theme     = "dropdown",
+      previewer = false,
+      hidden    = true,
+    },
+    file_browser = {
+      theme = "dropdown",
+      previewer = false,
+      hidden = true
+    }
   },
   extensions = {
     file_browser = {
@@ -54,9 +73,6 @@ vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
       no_ignore = false,
-      hidden = true,
-      layout_config = { width = 60 },
-      previewer = false
     })
   end)
 vim.keymap.set('n', ';r', function()
@@ -65,9 +81,6 @@ end)
 vim.keymap.set('n', '\\\\', function()
   builtin.buffers({
     no_ignore = false,
-    hidden = true,
-    layout_config = { width = 60 },
-    previewer = false
 
   })
 end)
@@ -85,10 +98,7 @@ vim.keymap.set("n", ";s", function()
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
     respect_gitignore = false,
-    hidden = true,
     grouped = true,
-    previewer = false,
     initial_mode = "normal",
-    layout_config = { height = 40 }
   })
 end)
