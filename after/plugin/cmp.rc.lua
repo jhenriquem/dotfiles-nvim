@@ -21,36 +21,36 @@ local function formatForTailwindCSS(entry, vim_item)
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-p>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-    ['<C-n>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<C-o>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }),
-  formatting = {
-    format = lspkind.cmp_format({
-      maxwidth = 50,
-      before = function(entry, vim_item)
-        vim_item = formatForTailwindCSS(entry, vim_item)
-        return vim_item
-      end
-    })
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     require('luasnip').lsp_expand(args.body)
+  --   end,
+  -- },
+  -- mapping = cmp.mapping.preset.insert({
+  --   ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  --   ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  --   ['<C-p>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+  --   ['<C-n>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+  --   ['<C-Space>'] = cmp.mapping.complete(),
+  --   ['<C-e>'] = cmp.mapping.close(),
+  --   ['<C-o>'] = cmp.mapping.confirm({
+  --     behavior = cmp.ConfirmBehavior.Replace,
+  --     select = true
+  --   }),
+  -- }),
+  -- sources = cmp.config.sources({
+  --   { name = 'nvim_lsp' },
+  --   { name = 'buffer' },
+  -- }),
+  -- formatting = {
+  --   format = lspkind.cmp_format({
+  --     maxwidth = 50,
+  --     before = function(entry, vim_item)
+  --       vim_item = formatForTailwindCSS(entry, vim_item)
+  --       return vim_item
+  --     end
+  --   })
+  -- },
   window = {
     completion = {
       border = "rounded",

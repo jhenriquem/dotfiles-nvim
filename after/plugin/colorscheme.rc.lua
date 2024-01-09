@@ -30,6 +30,6 @@ vim.g.nord_italic = false
 vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
 
--- Load the colorscheme
-require('nord').set()
-vim.cmd [[ colorscheme solarized-osaka]]
+
+-- setup must be called before loading
+vim.cmd.colorscheme "solarized-osaka"
