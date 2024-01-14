@@ -10,3 +10,13 @@ mason.setup({
 lspconfig.setup {
   automatic_installation = true
 }
+
+require('mason-tool-installer').setup {
+  automatic_installation = true,
+  ensure_installed = {
+    'prettier',
+    'eslint_d',
+    'stylua',
+  }
+}
+
