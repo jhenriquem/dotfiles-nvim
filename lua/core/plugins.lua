@@ -18,7 +18,7 @@ packer.startup({
 		use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
 		use("hrsh7th/nvim-cmp") -- Completion
 		use("hrsh7th/cmp-buffer")
-		-- use { 'neoclide/coc.nvim', branch = 'release' }
+		-- use({ "neoclide/coc.nvim", branch = "release" })
 
 		------------------ Server Config --------------------------
 		use("neovim/nvim-lspconfig") -- LSP
