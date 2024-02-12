@@ -1,8 +1,7 @@
 local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 
-keymap.set("n", "n", ":enew<cr>")
-keymap.set("n", "w", ":w ")
+keymap.set("n", "n", ":enew<cr>: w ")
 keymap.set("n", "<space>q", ":q!<cr>")
 
 -- Increment/decrement
@@ -21,16 +20,6 @@ keymap.set("v", "k", "j")
 keymap.set("v", "j", "k")
 keymap.set("n", "k", "j")
 keymap.set("n", "j", "k")
----
-keymap.set("i", "<C-j>", "<Up>")
-keymap.set("i", "<C-l>", "<Right>")
-keymap.set("i", "<C-h>", "<Left>")
-keymap.set("i", "<C-k>", "<Down>")
-
-keymap.set("i", "<Up>", "")
-keymap.set("i", "<Right>", "")
-keymap.set("i", "<Left>", "")
-keymap.set("i", "<Down>", "")
 
 -- Salve and quit file
 keymap.set("n", "<space>w", ":w!<cr>")
@@ -44,16 +33,23 @@ keymap.set("n", ";", ":")
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
 
-keymap.set("i", ";;", "<ESC>")
-keymap.set("i", ";v", "<ESC>v")
+keymap.set("i", "çç", "<ESC>")
+keymap.set("i", "çv", "<ESC>v")
 
-keymap.set("i", "<A-[>", "()<Left>")
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("i", "<C-j>", "<Up>")
+keymap.set("i", "<C-l>", "<Right>")
+keymap.set("i", "<C-h>", "<Left>")
+keymap.set("i", "<C-k>", "<Down>")
 
+keymap.set("i", "<Up>", "")
+keymap.set("i", "<Right>", "")
+keymap.set("i", "<Left>", "")
+keymap.set("i", "<Down>", "")
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w")
 keymap.set("n", "sv", ":vsplit<Return><C-w>w")

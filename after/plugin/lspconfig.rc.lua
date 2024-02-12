@@ -52,7 +52,7 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local servers = { "html", "tailwindcss", "marksman", "emmet_ls", "cssls", "jsonls", "tsserver", "clangd" }
+local servers = { "html", "tailwindcss", "csharp_ls", "marksman", "emmet_ls", "cssls", "jsonls", "tsserver", "clangd" }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({

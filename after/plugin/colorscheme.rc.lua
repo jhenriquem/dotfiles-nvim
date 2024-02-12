@@ -27,4 +27,4 @@ vim.g.nord_italic = true
 vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
 vim.cmd.colorscheme("solarized-osaka")
-require("nord").set()
+-- require("nord").set()
