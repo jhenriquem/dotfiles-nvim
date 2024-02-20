@@ -33,8 +33,8 @@ keymap.set("n", ";", ":")
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
 
-keymap.set("i", "çç", "<ESC>")
-keymap.set("i", "çv", "<ESC>v")
+keymap.set("i", ";;", "<ESC>")
+keymap.set("i", ";v", "<ESC>v")
 
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')

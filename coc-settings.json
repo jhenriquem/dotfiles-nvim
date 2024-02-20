@@ -27,8 +27,22 @@
     "typeParameter": "",
     "default": ""
   },
+
+  "diagnostic.enable": true,
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": false,
+    "title": " Diagnostics "
+  },
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.hintSign": "",
+  "diagnostic.format": "(%source%code) %message",
+
   "suggest.formatItems": ["abbr", "menu", "kind"],
-  "diagnostic.enable": false,
   "suggest.floatConfig": {
     "border": true,
     "rounded": true

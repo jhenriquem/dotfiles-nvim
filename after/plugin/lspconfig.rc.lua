@@ -81,41 +81,31 @@ nvim_lsp.lua_ls.setup({
 		},
 	},
 })
-local signs = { Error = " ", Warn = " ", Hint = "", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+
+-- local signs = { Error = " ", Warn = " ", Hint = "", Info = " " }
+-- for type, icon in pairs(signs) do
+-- 	local hl = "DiagnosticSign" .. type
+-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+-- end
 
 ---------------------------------
 -- Mensagem flutuante
 ---------------------------------
 vim.diagnostic.config({
-	float = { source = "always", border = "single" },
+	-- float = { source = "always", border = "single" },
+	-- float = false,
 	virtual_text = false,
-	signs = true,
+	signs = false,
 })
-
--- Outro tipo de Mensagem -----
--- vim.diagnostic.config({
--- virtual_text = {
--- prefix = '●'
--- },
--- update_in_insert = true,
--- float = {
--- source = "always", -- Or "if_many"
--- },
--- })
 
 ---------------------------------
 -- Auto commands
 ---------------------------------
-vim.cmd([[ autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.cmd([[ autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 ----------------------------------------
 --       LSP KIND
 ----------------------------------------
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 local status, lspkind = pcall(require, "lspkind")
 if not status then
 	return
