@@ -23,12 +23,12 @@ local function formatForTailwindCSS(entry, vim_item)
 end
 
 cmp.setup({
-	-- sources = {
-	-- 	{ name = "nvim_lsp" },
-	-- 	{ name = "luasnip" },
-	-- 	{ name = "buffer" },
-	-- 	{ name = "path" },
-	-- },
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "path" },
+	},
 
 	formatting = {
 		format = lspkind.cmp_format({
@@ -40,11 +40,11 @@ cmp.setup({
 		}),
 	},
 
-	-- snippet = {
-	-- 	expand = function(args)
-	-- 		require("luasnip").lsp_expand(args.body)
-	-- 	end,
-	-- },
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 
 	window = {
 		completion = {
@@ -69,21 +69,4 @@ cmp.setup({
 			select = true,
 		}),
 	},
-})
-
--- require("luasnip/loaders/from_vscode").load()
-
--- Auto-completar do modo de comando
-cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = { { name = "buffer" } },
-})
-
-cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
 })

@@ -20,9 +20,8 @@ keymap.set("n", "<space>w", ":w!<cr>")
 keymap.set("n", "q", ":q<cr>")
 
 keymap.set("n", "<space>n", ":NvimTreeToggle<cr>")
-
+keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
 ------
-keymap.set("n", ";", ":")
 
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")

@@ -19,7 +19,7 @@ packer.startup({
 		use("hrsh7th/nvim-cmp") -- Completion
 		use("hrsh7th/cmp-buffer")
 
-		use({ "neoclide/coc.nvim", branch = "release" })
+		-- use({ "neoclide/coc.nvim", branch = "release" })
 
 		use("hrsh7th/cmp-path")
 		use("saadparwaiz1/cmp_luasnip")
@@ -95,6 +95,7 @@ packer.startup({
 				require("alpha").setup(require("alpha.themes.dashboard").config)
 			end,
 		})
+		use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 
 		---------- Git --------------------------
 		use("lewis6991/gitsigns.nvim")

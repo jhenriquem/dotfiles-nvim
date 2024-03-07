@@ -36,9 +36,9 @@
   },
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.errorSign": " ",
+  "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": " ",
+  "diagnostic.infoSign": " ",
   "diagnostic.hintSign": "",
   "diagnostic.format": "(%source%code) %message",
 

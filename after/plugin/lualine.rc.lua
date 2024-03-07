@@ -1,11 +1,6 @@
-local fn = vim.fn
 local status, lualine = pcall(require, "lualine")
 if not status then
 	return
-end
-
-local function stbufnr()
-	return vim.api.nvim_win_get_buf(vim.g.statusline_winid)
 end
 
 lualine.setup({
@@ -21,11 +16,17 @@ lualine.setup({
 		lualine_b = { { "branch", icon = "" } },
 
 		lualine_c = {
+			-- Util.lualine.root_dir(),
 			{
-				"filetype",
-				colored = true, -- Displays filetype icon in color if set to true
-				icon_only = true,
+				"diagnostics",
+				symbols = {
+					error = " ",
+					warn = " ",
+					hint = " ",
+					info = " ",
+				},
 			},
+			{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
 			{
 				"filename",
 				path = 0,
@@ -37,72 +38,55 @@ lualine.setup({
 				},
 			},
 		},
-
 		lualine_x = {
-
-			{
-				"diagnostics",
-				sources = { "nvim_diagnostic", "coc" },
-				symbols = { error = " ", warn = " ", info = " ", hint = " " },
-			},
 			{
 				function()
-					local info = vim.b.coc_diagnostic_info or {}
-					local status = vim.g.coc_status or ""
-					if arg[1] then
-						status = string.gsub(status, "%%", "%%%%")
-					end
-					return vim.trim(" " .. status)
+					return require("noice").api.status.command.get()
+				end,
+				cond = function()
+					return package.loaded["noice"] and require("noice").api.status.command.has()
 				end,
 			},
-			-- },
-			-- { function()
-			--   local msg = 'No Lsp'
-			--   local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-			--   local clients = vim.lsp.get_active_clients()
-			--   if next(clients) == nil then
-			--     return msg
-			--   end
-			--   for _, client in ipairs(clients) do
-			--     local filetypes = client.config.filetypes
-			--     if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-			--       return client.name
-			--     end
-			--   end
-			--   return msg
+			-- {
+			-- function()
+			-- return require("noice").api.status.mode.get()
 			-- end,
-			--   icon = ' ', }
+			-- cond = function()
+			-- return package.loaded["noice"] and require("noice").api.status.mode.has()
+			-- end,
+			-- },
+			{
+				function()
+					return "  " .. require("dap").status()
+				end,
+				cond = function()
+					return package.loaded["dap"] and require("dap").status() ~= ""
+				end,
+			},
+			{
+				"diff",
+				symbols = {},
+				source = function()
+					local gitsigns = vim.b.gitsigns_status_dict
+					if gitsigns then
+						return {
+							added = gitsigns.added,
+							modified = gitsigns.changed,
+							removed = gitsigns.removed,
+						}
+					end
+				end,
+			},
 		},
-
 		lualine_y = {
 			{ "progress", separator = " ", padding = { left = 1, right = 0 } },
 			{ "location", padding = { left = 0, right = 1 } },
 		},
-
 		lualine_z = {
-			{
-				function()
-					local dir_name = fn.fnamemodify(fn.getcwd(), ":t")
-					return dir_name or ""
-				end,
-				icon = "󰉋",
-			},
+			function()
+				return " " .. os.date("%R")
+			end,
 		},
 	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {
-			{
-				"filename",
-				file_status = true, -- displays file status (readonly status, modified status)
-				path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-			},
-		},
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	extensions = { "fugitive" },
+	extensions = { "neo-tree", "lazy" },
 })
