@@ -23,28 +23,12 @@ local function formatForTailwindCSS(entry, vim_item)
 end
 
 cmp.setup({
-	-- snippet = {
-	-- 	expand = function(args)
-	-- 		require("luasnip").lsp_expand(args.body)
-	-- 	end,
-	-- },
-
-	mapping = cmp.mapping.preset.insert({
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-p>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-n>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
-		["<C-o>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-	}),
-	-- sources = cmp.config.sources({
+	-- sources = {
 	-- 	{ name = "nvim_lsp" },
+	-- 	{ name = "luasnip" },
 	-- 	{ name = "buffer" },
-	-- }),
+	-- 	{ name = "path" },
+	-- },
 
 	formatting = {
 		format = lspkind.cmp_format({
@@ -55,6 +39,13 @@ cmp.setup({
 			end,
 		}),
 	},
+
+	-- snippet = {
+	-- 	expand = function(args)
+	-- 		require("luasnip").lsp_expand(args.body)
+	-- 	end,
+	-- },
+
 	window = {
 		completion = {
 			border = "rounded",
@@ -64,12 +55,24 @@ cmp.setup({
 			border = "rounded",
 		},
 	},
+
+	mapping = {
+
+		["<C-p>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<C-n>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
+		["<C-o>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+	},
 })
 
-vim.cmd([[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]])
+-- require("luasnip/loaders/from_vscode").load()
+
 -- Auto-completar do modo de comando
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),

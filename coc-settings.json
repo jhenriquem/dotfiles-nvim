@@ -31,7 +31,7 @@
   "diagnostic.enable": true,
   "diagnostic.floatConfig": {
     "border": true,
-    "rounded": false,
+    "rounded": true,
     "title": " Diagnostics "
   },
   "diagnostic.refreshOnInsertMode": true,
@@ -42,7 +42,8 @@
   "diagnostic.hintSign": "",
   "diagnostic.format": "(%source%code) %message",
 
-  "suggest.formatItems": ["abbr", "menu", "kind"],
+  "suggest.enablePreselect": false,
+  "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.floatConfig": {
     "border": true,
     "rounded": true

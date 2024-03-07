@@ -18,7 +18,11 @@ packer.startup({
 		use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
 		use("hrsh7th/nvim-cmp") -- Completion
 		use("hrsh7th/cmp-buffer")
+
 		use({ "neoclide/coc.nvim", branch = "release" })
+
+		use("hrsh7th/cmp-path")
+		use("saadparwaiz1/cmp_luasnip")
 
 		------------------ Server Config --------------------------
 		use("neovim/nvim-lspconfig") -- LSP
@@ -97,6 +101,7 @@ packer.startup({
 		use("dinhhuy258/git.nvim") -- For git blame & browse
 
 		---------- Themes ---------------------
+		use({ "catppuccin/nvim", as = "catppuccin" })
 		use("shaunsingh/nord.nvim")
 		use("craftzdog/solarized-osaka.nvim")
 	end,

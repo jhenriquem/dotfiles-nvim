@@ -10,7 +10,7 @@ require("solarized-osaka").setup({
 		variables = {},
 		-- Background styles. Can be "dark", "transparent" or "normal"
 		sidebars = "transparent", -- style for sidebars, see below
-		floats = "normal", -- style for floating windows
+		floats = "transparent", -- style for floating windows
 	},
 	sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
 	day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -18,7 +18,9 @@ require("solarized-osaka").setup({
 	dim_inactive = false, -- dims inactive windows
 	lualine_bold = true,
 })
-
+---------------------------------------------
+--  NORD
+----------------------------------------------
 -- Example config in lua
 vim.g.nord_contrast = true
 vim.g.nord_borders = true
@@ -26,5 +28,27 @@ vim.g.nord_disable_background = true
 vim.g.nord_italic = true
 vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
+
+--------------------------------------------
+-- CATPPUCCIN
+--------------------------------------------
+require("catppuccin").setup({
+	transparent_background = true,
+	integrations = {
+		cmp = true,
+		gitsigns = true,
+		nvimtree = true,
+		treesitter = true,
+		coc_nvim = true,
+		notify = true,
+		mini = {
+			enabled = true,
+			indentscope_color = "",
+		},
+		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+	},
+})
+-----------------------------
+
 vim.cmd.colorscheme("solarized-osaka")
 -- require("nord").set()

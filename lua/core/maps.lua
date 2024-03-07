@@ -15,12 +15,6 @@ keymap.set("n", "<space>d", ":bn<cr>")
 keymap.set("n", "<space>r", ":RunCode<cr>")
 
 keymap.set("n", "\\s", ":source %<cr>")
-
-keymap.set("v", "k", "j")
-keymap.set("v", "j", "k")
-keymap.set("n", "k", "j")
-keymap.set("n", "j", "k")
-
 -- Salve and quit file
 keymap.set("n", "<space>w", ":w!<cr>")
 keymap.set("n", "q", ":q<cr>")
@@ -41,10 +35,11 @@ keymap.set("n", "dw", 'vb"_d')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
-keymap.set("i", "<C-j>", "<Up>")
+
+keymap.set("i", "<C-k>", "<Up>")
 keymap.set("i", "<C-l>", "<Right>")
 keymap.set("i", "<C-h>", "<Left>")
-keymap.set("i", "<C-k>", "<Down>")
+keymap.set("i", "<C-j>", "<Down>")
 
 keymap.set("i", "<Up>", "")
 keymap.set("i", "<Right>", "")
