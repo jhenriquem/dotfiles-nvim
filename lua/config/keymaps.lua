@@ -2,7 +2,7 @@ local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "n", ":enew<cr>: w ")
-keymap.set("n", "<space>q", ":q!<cr>")
+-- keymap.set("n", "<space>q", ":q!<cr>")
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
@@ -12,12 +12,12 @@ keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
 keymap.set("n", "<space>d", ":bn<cr>")
 
-keymap.set("n", "<space>r", ":RunCode<cr>")
+-- keymap.set("n", "<space>r", ":RunCode<cr>")
 
-keymap.set("n", "\\s", ":source %<cr>")
+-- keymap.set("n", "\\s", ":source %<cr>")
 -- Salve and quit file
-keymap.set("n", "<space>w", ":w!<cr>")
-keymap.set("n", "q", ":q<cr>")
+-- keymap.set("n", "<space>w", ":w!<cr>")
+-- keymap.set("n", "q", ":q<cr>")
 
 keymap.set("n", "<space>n", ":NvimTreeToggle<cr>")
 keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")

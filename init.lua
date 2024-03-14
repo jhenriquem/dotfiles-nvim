@@ -1,4 +1,6 @@
-require("core.base")
-require("core.highlights")
-require("core.maps")
-require("core.plugins")
+require("config.options")
+require("config.highlights")
+require("config.keymaps")
+require("config.init")
+
+require("lazy-nvim")
