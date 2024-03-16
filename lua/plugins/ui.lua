@@ -7,8 +7,8 @@ return {
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-						["vim.lsp.util.stylize_markdown"] = false,
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
 						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 					},
 				},
@@ -113,7 +113,6 @@ return {
 					lualine_b = { { "branch", icon = "" } },
 
 					lualine_c = {
-						-- Util.lualine.root_dir(),
 						{
 							"diagnostics",
 							symbols = {
@@ -177,7 +176,7 @@ return {
 						end,
 					},
 				},
-				extensions = { "neo-tree", "lazy" },
+				extensions = {},
 			})
 		end,
 	},

@@ -78,12 +78,8 @@ return {
 				end
 
 				local opts = { noremap = true, silent = true }
-
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				uf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-				--buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 				buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-				--buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 			end
 
 			protocol.CompletionItemKind = {
@@ -114,17 +110,17 @@ return {
 				"", -- TypeParameter
 			}
 
-			-- Set up completion using nvim_cmp with LSP source
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			local servers = {
 				"html",
 				"tailwindcss",
 				"csharp_ls",
 				"marksman",
+				"texlab",
 				"emmet_ls",
 				"cssls",
 				"jsonls",
+				"lua_ls",
 				"tsserver",
 				"clangd",
 			}
@@ -135,27 +131,6 @@ return {
 					capabilities = capabilities,
 				})
 			end
-
-			nvim_lsp.lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-				end,
-				settings = {
-					Lua = {
-						diagnostics = {
-							-- Get the language server to recognize the `vim` global
-							globals = { "vim" },
-						},
-
-						workspace = {
-							-- Make the server aware of Neovim runtime files
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
-						},
-					},
-				},
-			})
 		end,
 	},
 

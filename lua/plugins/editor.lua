@@ -3,77 +3,67 @@ return {
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-require("nvim-tree").setup({
-	view = {
-		width = 30,
-		side = "left",
-
-		float = {
-			enable = false,
-			open_win_config = {
-				relative = "editor",
-				border = "single",
-				width = 40,
-				height = 15,
-				row = 1,
-				col = 1,
-			},
-			quit_on_focus_loss = true,
-		},
-	},
-	renderer = {
-		symlink_destination = true,
-		highlight_git = true,
-		highlight_diagnostics = true,
-		indent_markers = {
-			enable = true,
-			inline_arrows = true,
-			icons = {
-				corner = "└",
-				edge = "│",
-				item = "│",
-				bottom = "─",
-				none = " ",
-			},
-		},
-		icons = {
-			glyphs = {
-				default = "",
-				symlink = "",
-				bookmark = "󰆤",
-				modified = "●",
-				folder = {
-					arrow_closed = "",
-					arrow_open = "",
-					default = "",
-					open = "",
-					empty = "",
-					empty_open = "",
-					symlink = "",
-					symlink_open = "",
+			require("nvim-tree").setup({
+				view = {
+					width = 30,
+					side = "left",
 				},
-				git = {
-					unstaged = "󰅖",
-					staged = "󰄬",
-					unmerged = "",
-					renamed = "➜",
-					untracked = "★",
-					deleted = "",
-					ignored = "◌",
+				renderer = {
+					symlink_destination = true,
+					highlight_git = true,
+					highlight_diagnostics = true,
+					indent_markers = {
+						enable = true,
+						inline_arrows = true,
+						icons = {
+							corner = "└",
+							edge = "│",
+							item = "│",
+							bottom = "─",
+							none = " ",
+						},
+					},
+					icons = {
+						glyphs = {
+							default = "",
+							symlink = "",
+							bookmark = "󰆤",
+							modified = "●",
+							folder = {
+								arrow_closed = "",
+								arrow_open = "",
+								default = "",
+								open = "",
+								empty = "",
+								empty_open = "",
+								symlink = "",
+								symlink_open = "",
+							},
+							git = {
+								unstaged = "󰅖",
+								staged = "󰄬",
+								unmerged = "",
+								renamed = "➜",
+								untracked = "★",
+								deleted = "",
+								ignored = "◌",
+							},
+						},
+					},
 				},
-			},
+			})
+		end,
+	},
+
+	{
+		{
+			"lukas-reineke/indent-blankline.nvim",
+			main = "ibl",
+			config = function()
+				require("ibl").setup()
+			end,
 		},
 	},
-})
-
-    end
-	},
-
-  {
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", config = function()
-require("ibl").setup()
-    end }
-  },
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -164,7 +154,6 @@ require("ibl").setup()
 
 			vim.keymap.set("n", ";f", function()
 				builtin.find_files({
-					-- no_ignore = true,
 					respect_gitignore = false,
 					hidden = true,
 				})
@@ -205,76 +194,74 @@ require("ibl").setup()
 		event = { "BufReadPre", "BufNewFile" },
 		config = true,
 	},
-  {
-"mfussenegger/nvim-lint",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
-  config = function()
-local lint = require("lint")
+	{
+		"mfussenegger/nvim-lint",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+		config = function()
+			local lint = require("lint")
 
-lint.linters_by_ft = {
-	javascript = { "eslint_d" },
-	typescript = { "eslint_d" },
-	javascriptreact = { "eslint_d" },
-	typescriptreact = { "eslint_d" },
-	svelte = { "eslint_d" },
-}
+			lint.linters_by_ft = {
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+				svelte = { "eslint_d" },
+			}
 
-local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-	group = lint_augroup,
-	callback = function()
-		lint.try_lint()
-	end,
-})
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+				group = lint_augroup,
+				callback = function()
+					lint.try_lint()
+				end,
+			})
 
-vim.keymap.set("n", "<leader>l", function()
-	lint.try_lint()
-end, { desc = "Trigger linting for current file" })
-  end
-  },
+			vim.keymap.set("n", "<leader>l", function()
+				lint.try_lint()
+			end, { desc = "Trigger linting for current file" })
+		end,
+	},
 
+	{
+		"stevearc/conform.nvim",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+		config = function()
+			local conform = require("conform")
 
-  {
-    "stevearc/conform.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
-  config = function()
-    local conform = require("conform")
+			conform.setup({
+				formatters_by_ft = {
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescriptreact = { "prettier" },
+					svelte = { "prettier" },
+					css = { "prettier" },
+					html = { "prettier" },
+					json = { "prettier" },
+					yaml = { "prettier" },
+					markdown = { "prettier" },
+					graphql = { "prettier" },
+					lua = { "stylua" },
+				},
+				format_on_save = {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 1000,
+				},
+			})
 
-    conform.setup({
-      formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
-        lua = { "stylua" },
-      },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      },
-    })
-
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format file or range (in visual mode)" })
-  end,
-
-  },
+			vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+				conform.format({
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 1000,
+				})
+			end, { desc = "Format file or range (in visual mode)" })
+		end,
+	},
 	{
 		"CRAG666/code_runner.nvim",
 		config = function()

@@ -1,23 +1,11 @@
-local keymap = vim.keymap
+local keymap = vim.jjj
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "n", ":enew<cr>: w ")
--- keymap.set("n", "<space>q", ":q!<cr>")
-
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
 
 keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
 keymap.set("n", "<space>d", ":bn<cr>")
-
--- keymap.set("n", "<space>r", ":RunCode<cr>")
-
--- keymap.set("n", "\\s", ":source %<cr>")
--- Salve and quit file
--- keymap.set("n", "<space>w", ":w!<cr>")
--- keymap.set("n", "q", ":q<cr>")
 
 keymap.set("n", "<space>n", ":NvimTreeToggle<cr>")
 keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
@@ -26,11 +14,8 @@ keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
 
-keymap.set("i", ";;", "<ESC>")
-keymap.set("i", ";v", "<ESC>v")
-
--- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+keymap.set("i", "ll", "<ESC>")
+keymap.set("i", "lv", "<ESC>v")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -44,6 +29,7 @@ keymap.set("i", "<Up>", "")
 keymap.set("i", "<Right>", "")
 keymap.set("i", "<Left>", "")
 keymap.set("i", "<Down>", "")
+
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w")
 keymap.set("n", "sv", ":vsplit<Return><C-w>w")

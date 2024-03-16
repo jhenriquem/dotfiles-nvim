@@ -9,10 +9,8 @@ end
 ---------------------------------
 vim.diagnostic.config({
 	float = { source = "always", border = "single" },
-	-- float = false,
 	virtual_text = false,
 	signs = true,
-	-- signs = false,
 })
 
-
+vim.cmd([[ autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
