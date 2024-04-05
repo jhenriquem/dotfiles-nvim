@@ -1,4 +1,4 @@
-local keymap = vim.jjj
+local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "n", ":enew<cr>: w ")
@@ -13,10 +13,6 @@ keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
 
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
-
-keymap.set("i", "ll", "<ESC>")
-keymap.set("i", "lv", "<ESC>v")
-
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
