@@ -1,18 +1,13 @@
 local keymap = vim.keymap
 keymap.set("n", "x", '"_x')
 
-keymap.set("n", "n", ":enew<cr>: w ")
-
 keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
 keymap.set("n", "<space>d", ":bn<cr>")
 
-keymap.set("n", "<space>n", ":NvimTreeToggle<cr>")
-keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
-------
-
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 

@@ -86,33 +86,33 @@ return {
 
 		telescope.load_extension("file_browser")
 
-		vim.keymap.set("n", ";f", function()
+		vim.keymap.set("n", "<space>ff", function()
 			builtin.find_files({
 				respect_gitignore = false,
 				hidden = true,
 			})
 		end)
 
-		vim.keymap.set("n", ";c", function()
+		vim.keymap.set("n", "<space>th", function()
 			builtin.colorscheme()
 		end)
-		vim.keymap.set("n", ";r", function()
+		vim.keymap.set("n", "<space>fr", function()
 			builtin.resume()
 		end)
-		vim.keymap.set("n", "\\\\", function()
+		vim.keymap.set("n", "<space>fb", function()
 			builtin.buffers()
 		end)
-		vim.keymap.set("n", ";t", function()
+		vim.keymap.set("n", "<space>ft", function()
 			builtin.help_tags()
 		end)
-		vim.keymap.set("n", ";;", function()
+		vim.keymap.set("n", "<space>lg", function()
 			builtin.live_grep()
 		end)
-		vim.keymap.set("n", ";e", function()
+		vim.keymap.set("n", "<space>fd", function()
 			builtin.diagnostics()
 		end)
 
-		vim.keymap.set("n", ";s", function()
+		vim.keymap.set("n", "<space>fs", function()
 			telescope.extensions.file_browser.file_browser({
 				path = "%:p:h",
 				cwd = telescope_buffer_dir(),

@@ -1,12 +1,11 @@
 return {
 	{
 		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
-			require("notify").setup({
-				background_colour = "#000000",
-			})
-		end,
+		opts = {
+			timeout = 2000,
+			background_colour = "#000000",
+			render = "wrapped-compact",
+		},
 	},
 	{
 		"kyazdani42/nvim-web-devicons",

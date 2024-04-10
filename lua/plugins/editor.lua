@@ -11,4 +11,22 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = true,
 	},
+
+	{
+		"smjonas/inc-rename.nvim",
+		cmd = "IncRename",
+		keys = {
+			{
+				"rn",
+				function()
+					return ":IncRename " .. vim.fn.expand("<cword>")
+				end,
+				desc = "Incremental rename",
+				mode = "n",
+				noremap = true,
+				expr = true,
+			},
+		},
+		config = true,
+	},
 }
