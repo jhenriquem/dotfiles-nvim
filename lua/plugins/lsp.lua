@@ -4,66 +4,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
-			{
-				"onsails/lspkind-nvim",
-				config = function()
-					require("lspkind").init({
-						mode = "symbol",
-						preset = "codicons",
-						symbol_map = {
-							Text = "󰉿",
-							Method = "󰆧",
-							Function = "󰊕",
-							Constructor = "",
-							Field = "󰜢",
-							Variable = " ",
-							Class = "󰠱",
-							Interface = "",
-							Module = "",
-							Property = "󰜢",
-							Unit = "󰑭",
-							Value = "󰎠",
-							Enum = "",
-							Keyword = "󰌋",
-							Snippet = "",
-							Color = "󰏘",
-							File = "󰈙",
-							Reference = "󰈇",
-							Folder = "󰉋",
-							EnumMember = "",
-							Constant = "󰏿",
-							Struct = "󰙅",
-							Event = "",
-							Operator = "󰆕",
-							TypeParameter = "",
-						},
-					})
-				end,
-			},
-			{
-				"nvimdev/lspsaga.nvim",
-				config = function()
-					require("lspsaga").setup({
-						ui = {
-							border = "rounded",
-						},
-						symbol_in_winbar = {
-							enable = true,
-						},
-						lightbulb = {
-							enable = false,
-						},
-						outline = {
-							layout = "float",
-						},
-					})
-					local opts = { noremap = true, silent = true }
-					vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-					vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-					vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-					vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-				end,
-			},
 		},
 		config = function()
 			local status, nvim_lsp = pcall(require, "lspconfig")
@@ -133,7 +73,66 @@ return {
 			end
 		end,
 	},
-
+	{
+		"onsails/lspkind-nvim",
+		config = function()
+			require("lspkind").init({
+				mode = "symbol",
+				preset = "codicons",
+				symbol_map = {
+					Text = "󰉿",
+					Method = "󰆧",
+					Function = "󰊕",
+					Constructor = "",
+					Field = "󰜢",
+					Variable = " ",
+					Class = "󰠱",
+					Interface = "",
+					Module = "",
+					Property = "󰜢",
+					Unit = "󰑭",
+					Value = "󰎠",
+					Enum = "",
+					Keyword = "󰌋",
+					Snippet = "",
+					Color = "󰏘",
+					File = "󰈙",
+					Reference = "󰈇",
+					Folder = "󰉋",
+					EnumMember = "",
+					Constant = "󰏿",
+					Struct = "󰙅",
+					Event = "",
+					Operator = "󰆕",
+					TypeParameter = "",
+				},
+			})
+		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({
+				ui = {
+					border = "rounded",
+				},
+				symbol_in_winbar = {
+					enable = true,
+				},
+				lightbulb = {
+					enable = false,
+				},
+				outline = {
+					layout = "float",
+				},
+			})
+			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+			vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+			vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+			vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+		end,
+	},
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
