@@ -50,13 +50,57 @@ return {
 					return label
 				end
 
+				local modes = {
+					["n"] = { "NORMAL", "Normal" },
+					["no"] = { "NORMAL (no)", "Normal" },
+					["nov"] = { "NORMAL (nov)", "Normal" },
+					["noV"] = { "NORMAL (noV)", "Normal" },
+					["noCTRL-V"] = { "NORMAL", "Normal" },
+					["niI"] = { "NORMAL i", "Normal" },
+					["niR"] = { "NORMAL r", "Normal" },
+					["niV"] = { "NORMAL v", "Normal" },
+					["nt"] = { "NTERMINAL", "NTerminal" },
+					["ntT"] = { "NTERMINAL (ntT)", "NTerminal" },
+
+					["v"] = { "VISUAL", "Visual" },
+					["vs"] = { "V-CHAR (Ctrl O)", "Visual" },
+					["V"] = { "V-LINE", "Visual" },
+					["Vs"] = { "V-LINE", "Visual" },
+					[""] = { "V-BLOCK", "Visual" },
+
+					["i"] = { "INSERT", "Insert" },
+					["ic"] = { "INSERT (completion)", "Insert" },
+					["ix"] = { "INSERT completion", "Insert" },
+
+					["t"] = { "TERMINAL", "Terminal" },
+
+					["R"] = { "REPLACE", "Replace" },
+					["Rc"] = { "REPLACE (Rc)", "Replace" },
+					["Rx"] = { "REPLACEa (Rx)", "Replace" },
+					["Rv"] = { "V-REPLACE", "Replace" },
+					["Rvc"] = { "V-REPLACE (Rvc)", "Replace" },
+					["Rvx"] = { "V-REPLACE (Rvx)", "Replace" },
+
+					["s"] = { "SELECT", "Select" },
+					["S"] = { "S-LINE", "Select" },
+					[""] = { "S-BLOCK", "Select" },
+					["c"] = { "COMMAND", "Command" },
+					["cv"] = { "COMMAND", "Command" },
+					["ce"] = { "COMMAND", "Command" },
+					["r"] = { "PROMPT", "Confirm" },
+					["rm"] = { "MORE", "Confirm" },
+					["r?"] = { "CONFIRM", "Confirm" },
+					["x"] = { "CONFIRM", "Confirm" },
+					["!"] = { "SHELL", "Terminal" },
+				}
+
 				return {
 					{ get_diagnostic_label() },
 					{ get_git_diff() },
 					{ " ", (ft_icon or ""), " ", guifg = helpers.contrast_color(ft_color), guibg = ft_color },
 					{ " " },
 					{ filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
-					{ "  " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
+					{ " ", modes[vim.api.nvim_get_mode().mode][2], " ", guifg = "#00a4f0" },
 				}
 			end,
 		})

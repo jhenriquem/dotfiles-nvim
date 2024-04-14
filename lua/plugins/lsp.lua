@@ -4,6 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
+			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
 			local status, nvim_lsp = pcall(require, "lspconfig")
