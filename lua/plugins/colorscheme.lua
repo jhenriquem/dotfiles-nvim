@@ -13,7 +13,7 @@ return {
 				dim_inactive = false, -- dims inactive windows
 				lualine_bold = true,
 			})
-			vim.cmd([[colorscheme solarized-osaka]])
+			-- vim.cmd([[colorscheme solarized-osaka]])
 		end,
 	},
 	{
@@ -25,6 +25,17 @@ return {
 			vim.g.nord_uniform_diff_background = true
 			vim.g.nord_disable_background = true
 			vim.g.nord_bold = false
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("tokyonight").setup({
+				transparent = true,
+			})
+			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
 }
