@@ -29,7 +29,6 @@ return {
 				completion = {
 					scrollbar = false,
 				},
-
 				documentation = {
 					border = "rounded",
 				},

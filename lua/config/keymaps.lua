@@ -1,4 +1,5 @@
 local keymap = vim.keymap
+
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<space>a", ":bp<cr>")
@@ -7,6 +8,9 @@ keymap.set("n", "<space>d", ":bn<cr>")
 
 keymap.set("i", "~~", "''<Left>")
 keymap.set("i", "~", "'")
+
+keymap.set("i", "<a-,>", "$")
+keymap.set("i", "<a-.>", "%")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")

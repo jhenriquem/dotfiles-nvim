@@ -55,9 +55,7 @@ return {
 			local servers = {
 				"html",
 				"tailwindcss",
-				"csharp_ls",
 				"marksman",
-				"texlab",
 				"emmet_ls",
 				"cssls",
 				"jsonls",
@@ -161,6 +159,7 @@ return {
 					"prettier",
 					"eslint_d",
 					"stylua",
+					"js-debug-adapter",
 				},
 			})
 		end,

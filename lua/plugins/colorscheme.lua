@@ -34,6 +34,12 @@ return {
 		config = function()
 			require("tokyonight").setup({
 				transparent = true,
+				styles = {
+					comments = { italic = true },
+					keywords = { italic = true },
+					sidebars = "transparent", -- style for sidebars, see below
+					floats = "transparent", -- style for floating windows
+				},
 			})
 			vim.cmd([[colorscheme tokyonight]])
 		end,

@@ -97,7 +97,7 @@ return {
 				return {
 					{ get_diagnostic_label() },
 					{ get_git_diff() },
-					{ " ", (ft_icon or ""), " ", guifg = helpers.contrast_color(ft_color), guibg = ft_color },
+					{ (ft_icon or ""), " ", guifg = ft_color },
 					{ " " },
 					{ filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
 					{ " ", modes[vim.api.nvim_get_mode().mode][2], " ", guifg = "#00a4f0" },
