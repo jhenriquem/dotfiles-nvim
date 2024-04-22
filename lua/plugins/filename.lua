@@ -94,12 +94,23 @@ return {
 					["!"] = { "SHELL", "Terminal" },
 				}
 
+				function gitStatus()
+					return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+				end
+
+				local git_branch = vim.b[gitStatus()].gitsigns_status_dict
+
 				return {
 					{ get_diagnostic_label() },
 					{ get_git_diff() },
 					{ (ft_icon or ""), " ", guifg = ft_color },
 					{ " " },
 					{ filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
+					{
+						" ",
+						git_branch.head,
+						" ",
+					},
 					{ " ", modes[vim.api.nvim_get_mode().mode][2], " ", guifg = "#00a4f0" },
 				}
 			end,

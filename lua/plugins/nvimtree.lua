@@ -2,8 +2,8 @@ return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		vim.keymap.set("n", "<space>n", ":NvimTreeToggle<cr>")
-		vim.keymap.set("n", "<space>e", ":NvimTreeFocus<cr>")
+		vim.keymap.set("n", "<space>n", "<cmd>NvimTreeToggle<cr>")
+		vim.keymap.set("n", "<space>e", "<cmd>NvimTreeFocus<cr>")
 
 		require("nvim-tree").setup({
 			view = {

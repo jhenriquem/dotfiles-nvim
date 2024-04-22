@@ -99,6 +99,7 @@ return {
 		vim.keymap.set("n", "<space>fr", function()
 			builtin.resume()
 		end)
+
 		vim.keymap.set("n", "<space>fb", function()
 			builtin.buffers()
 		end)
