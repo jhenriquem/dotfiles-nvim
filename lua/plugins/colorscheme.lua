@@ -13,7 +13,7 @@ return {
 				dim_inactive = false, -- dims inactive windows
 				lualine_bold = true,
 			})
-			-- vim.cmd([[colorscheme solarized-osaka]])
+			vim.cmd([[colorscheme solarized-osaka]])
 		end,
 	},
 	{
@@ -41,7 +41,7 @@ return {
 					floats = "transparent", -- style for floating windows
 				},
 			})
-			vim.cmd([[colorscheme tokyonight]])
+			-- vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
 }
