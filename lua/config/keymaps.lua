@@ -6,11 +6,13 @@ keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
 keymap.set("n", "<space>d", ":bn<cr>")
 
-keymap.set("i", "~~", "''<Left>")
-keymap.set("i", "~", "'")
+keymap.set("i", "´´", '""<Left>')
 
 keymap.set("i", "<a-,>", "$")
 keymap.set("i", "<a-.>", "%")
+keymap.set("n", "<a-;>", "*")
+
+keymap.set("v", "<c-y>", '"+y')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -20,10 +22,10 @@ keymap.set("i", "<C-l>", "<Right>")
 keymap.set("i", "<C-h>", "<Left>")
 keymap.set("i", "<C-j>", "<Down>")
 
-keymap.set("i", "<Up>", "")
-keymap.set("i", "<Right>", "")
-keymap.set("i", "<Left>", "")
-keymap.set("i", "<Down>", "")
+-- keymap.set("i", "<Up>", "")
+-- keymap.set("i", "<Right>", "")
+-- keymap.set("i", "<Left>", "")
+-- keymap.set("i", "<Down>", "")
 
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w")

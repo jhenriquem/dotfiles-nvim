@@ -106,11 +106,6 @@ return {
 					{ (ft_icon or ""), " ", guifg = ft_color },
 					{ " " },
 					{ filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
-					-- {
-					-- " ",
-					-- git_branch.head,
-					-- " ",
-					-- },
 					{ " ", modes[vim.api.nvim_get_mode().mode][2], " ", guifg = "#00a4f0" },
 				}
 			end,
