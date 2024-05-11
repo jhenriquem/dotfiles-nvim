@@ -2,6 +2,10 @@ local keymap = vim.keymap
 
 keymap.set("n", "x", '"_x')
 
+keymap.set("n", "n", "<cmd>enew <cr>: w ")
+
+keymap.set("i", ";;", "<ESC>")
+
 keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
 keymap.set("n", "<space>d", ":bn<cr>")
