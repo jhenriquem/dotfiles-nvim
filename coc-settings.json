@@ -1,0 +1,43 @@
+{
+  "suggest.completionItemKindLabels": {
+    "text": "󰉿",
+    "method": "󰆧",
+    "function": "󰊕",
+    "constructor": "",
+    "field": "󰜢",
+    "variable": " ",
+    "class": "󰠱",
+    "interface": "",
+    "module": "",
+    "property": "󰜢",
+    "unit": "󰑭",
+    "value": "󰎠",
+    "enum": "",
+    "keyword": "󰌋",
+    "snippet": "",
+    "color": "󰏘",
+    "file": "󰈙",
+    "reference": "󰈇",
+    "folder": "󰉋",
+    "enumMember": "",
+    "constant": "󰏿",
+    "struct": "󰙅",
+    "event": "",
+    "operator": "󰆕",
+    "typeParameter": "",
+    "default": ""
+  },
+  "suggest.formatItems": ["abbr", "menu", "kind"],
+  "diagnostic.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "html",
+    "lua"
+  ],
+  "suggest.floatConfig": {
+    "border": false,
+    "rounded": false
+  }
+}
