@@ -30,7 +30,6 @@ return {
 				file_ignore_patterns = { ".git\\", "node_modules" },
 			},
 			pickers = {
-
 				find_files = {
 					theme = "dropdown",
 					previewer = false,

@@ -5,6 +5,9 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "n", "<cmd>enew <cr>: w ")
 
 keymap.set("i", ";;", "<ESC>")
+keymap.set("n", ";", ":")
+
+keymap.set("i", "<ESC>", "")
 
 keymap.set("n", "<space>a", ":bp<cr>")
 keymap.set("n", "<space>x", ":bd<cr>")
@@ -14,7 +17,7 @@ keymap.set("i", "´´", '""<Left>')
 
 keymap.set("i", "<a-,>", "$")
 keymap.set("i", "<a-.>", "%")
-keymap.set("n", "<a-;>", "*")
+keymap.set("i", "<a-;>", "*")
 
 keymap.set("v", "<c-y>", '"+y')
 
