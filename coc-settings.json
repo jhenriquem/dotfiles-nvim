@@ -29,6 +29,7 @@
   },
   "suggest.formatItems": ["abbr", "menu", "kind"],
   "diagnostic.enable": false,
+  "suggest.enablePreselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
