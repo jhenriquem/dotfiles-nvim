@@ -18,7 +18,7 @@ M.ui = {
     enabled = false,
   },
   nvdash = {
-    load_on_startup = true,
+    load_on_startup = false,
   },
   hl_override = {
     Comment = { italic = true },

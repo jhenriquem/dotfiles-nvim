@@ -20,6 +20,15 @@ return {
   },
 
   {
+    "iamcco/markdown-preview.nvim",
+    lazy = false,
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
     "mfussenegger/nvim-dap",
     lazy = false,
     config = function()
@@ -65,7 +74,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
+      require "configs.lsp"
       require "configs.cmp"
     end,
   },
@@ -95,6 +104,6 @@ return {
 
   {
     "folke/which-key.nvim",
-    enabled = false,
+    enabled = true,
   },
 }

@@ -15,5 +15,9 @@ require("code_runner").setup {
       " $fileNameWithoutExt.exe",
     },
     javascript = "node",
+    cs = function(...)
+      local root_dir = require("lspconfig").util.root_pattern "*.csproj"(vim.loop.cwd())
+      return "cd " .. root_dir .. " && dotnet run$end"
+    end,
   },
 }
