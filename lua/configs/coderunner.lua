@@ -8,6 +8,10 @@ require("code_runner").setup {
     border = "rounded",
   },
   filetype = {
+    go = {
+      "cd $dir &&",
+      "go run .",
+    },
     cpp = {
       "cd $dir &&",
       "md exec && cd exec",

@@ -9,7 +9,7 @@ local options = {
     typescriptreact = { "ts-standard" },
     ejs = { "prettier" },
     json = { "prettier" },
-    cpp = { "clang-format" },
+    go = { "gofumpt", "goimports" },
   },
 
   format_on_save = {

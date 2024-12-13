@@ -1,38 +1,11 @@
 return {
   {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
-      require("dapui").setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end,
-  },
-
-  {
     "iamcco/markdown-preview.nvim",
     lazy = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
       vim.fn["mkdp#util#install"]()
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    lazy = false,
-    config = function()
-      require "configs.debugger"
     end,
   },
   {
@@ -87,14 +60,6 @@ return {
     end,
   },
   {
-    "CRAG666/betterTerm.nvim",
-    lazy = false,
-    opts = {
-      position = "bot",
-      size = 15,
-    },
-  },
-  {
     "CRAG666/code_runner.nvim",
     lazy = false,
     config = function()
@@ -103,7 +68,26 @@ return {
   },
 
   {
+    "b0o/incline.nvim",
+    config = function()
+      require "configs.incline"
+    end,
+    -- Optional: Lazy load Incline
+    event = "VeryLazy",
+  },
+  {
     "folke/which-key.nvim",
+    enabled = true,
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require "configs.telescope"
+    end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
     enabled = true,
   },
 }
