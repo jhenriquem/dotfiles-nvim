@@ -8,4 +8,8 @@ vim.opt.scrolloff = 8
 vim.o.shell = "cmd.exe"
 vim.o.number = true
 
+vim.o.wrap = true
+vim.o.breakindent = true
+vim.o.smartindent = true
+
 vim.o.timeoutlen = 250

@@ -1,12 +1,13 @@
 local devicons = require "nvim-web-devicons"
 local helpers = require "incline.helpers"
+
 require("incline").setup {
   render = function(props)
     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
     if filename == "" then
-      filename = "[No Name]"
+      filename = "Empty"
     end
-    local ft_icon, ft_color = devicons.get_icon_color(filename)
+    -- local ft_icon, ft_color = devicons.get_icon_color(filename)
 
     local modes = {
       ["n"] = { "NORMAL", "Normal" },
@@ -90,17 +91,11 @@ require("incline").setup {
     return {
       { get_diagnostic_label() },
       { get_git_diff() },
-      -- { vim.b[props.buf].gitsigns_head, " ", guifg = "#849900" },
-      { vim.b[props.buf].gitsigns_head, " ", guifg = "#859900" },
-      { "  " },
-      { (ft_icon or ""), " ", guifg = "#db302d" },
-      -- { (ft_icon or ""), " ", guifg = "#ff757f" },
-      { " " },
       { filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold", guifg = "#db302d" },
-      -- { filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold", guifg = "#ff757f" },
-      { " ", vim.fn.line ".", "/", vim.fn.charcol ".", guifg = "#CB4B16" },
+      { vim.b[props.buf].gitsigns_head, guifg = "#859900" },
       { " " },
-      -- { " ", modes[vim.api.nvim_get_mode().mode][1], guifg = "#82aaff" },
+      { " ", vim.fn.line ".", "/", vim.fn.charcol ".", guifg = "#B58900" },
+      { " " },
       { " ", modes[vim.api.nvim_get_mode().mode][1], guifg = "#268bd3" },
     }
   end,

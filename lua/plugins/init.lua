@@ -27,6 +27,19 @@ return {
       require "configs.noice"
     end,
   },
+  { "nvzone/volt", lazy = true },
+  {
+    "nvzone/menu",
+    lazy = true,
+    config = function()
+      local opts = {
+        mouse = true,
+        border = false,
+      }
+      require("menu").open(opts)
+    end,
+  },
+
   {
 
     "stevearc/conform.nvim",
