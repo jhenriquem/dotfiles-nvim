@@ -1,12 +1,16 @@
 require "nvchad.options"
 
+local opt = vim.opt
 -- add yours here!
-vim.opt.mouse = ""
-vim.opt.laststatus = 0
-vim.opt.cmdheight = 0
-vim.opt.scrolloff = 8
+opt.mouse = ""
+opt.laststatus = 0
+opt.cmdheight = 0
+opt.scrolloff = 8
+
 vim.o.shell = "cmd.exe"
 vim.o.number = true
+
+opt.shortmess = "ltToOCF"
 
 vim.o.wrap = true
 vim.o.breakindent = true

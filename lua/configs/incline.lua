@@ -91,12 +91,12 @@ require("incline").setup {
     return {
       { get_diagnostic_label() },
       { get_git_diff() },
-      { filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold", guifg = "#db302d" },
-      { vim.b[props.buf].gitsigns_head, guifg = "#859900" },
+      { filename .. " ", gui = vim.bo[props.buf].modified and "bold,italic" or "bold", guifg = "#BF616A" },
+      { vim.b[props.buf].gitsigns_head, guifg = "#A3BE8C" },
       { " " },
-      { " ", vim.fn.line ".", "/", vim.fn.charcol ".", guifg = "#B58900" },
+      { " ", vim.fn.line ".", "/", vim.fn.charcol ".", guifg = "#EBCB8B" },
       { " " },
-      { " ", modes[vim.api.nvim_get_mode().mode][1], guifg = "#268bd3" },
+      { " ", modes[vim.api.nvim_get_mode().mode][1], guifg = "#81A1C1" },
     }
   end,
 }

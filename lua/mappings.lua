@@ -29,7 +29,6 @@ end)
 
 map("i", "]]", ")")
 
--- Atalhos para aspas simples (c#) e aspas duplas (todo o resto)-´ ""
 map("i", "~~", "''<Left>")
 map("i", "´´", '""<Left>')
 
@@ -41,6 +40,8 @@ map("n", "<space>n", "<cmd>NvimTreeToggle<cr>", { desc = "Open NvimTree" })
 -- Run code
 map("n", "<space>r", "<cmd>RunCode<cr>")
 
+------------------------------------------------
+
 -- Movimentação na linha
 map("n", "<a-,>", "0")
 map("n", "<a-.>", "$")
@@ -50,7 +51,7 @@ map("n", "<space>mp", "<cmd>MarkdownPreview<cr>")
 map("n", "<space>ms", "<cmd>MarkdownPreviewStop<cr>")
 map("n", "<space>mt", "<cmd>MarkdownPreviewToggle<cr>")
 
-map("n", "<leader>fs", "<cmd>Telescope file_browser<cr>", { desc = "Telescope file browser" })
+------------------------------------------------
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 

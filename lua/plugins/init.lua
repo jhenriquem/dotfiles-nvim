@@ -1,13 +1,36 @@
 return {
+
   {
-    "iamcco/markdown-preview.nvim",
-    lazy = false,
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
+    "mfussenegger/nvim-dap",
+
+    event = "VeryLazy",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "leoluz/nvim-dap-go",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require "configs.debugger"
     end,
   },
+  {
+    "ngtuonghy/live-server-nvim",
+    event = "VeryLazy",
+    build = ":LiveServerInstall",
+    config = function()
+      require "configs.live_server"
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && npm  install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
@@ -94,6 +117,7 @@ return {
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
+    event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     config = function()
       require "configs.telescope"
