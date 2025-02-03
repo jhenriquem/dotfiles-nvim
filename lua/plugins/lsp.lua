@@ -89,7 +89,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local servers = {
 				"html",
-				"ts_ls",
+				"tsserver",
 				"gopls",
 				"tailwindcss",
 				"eslint",

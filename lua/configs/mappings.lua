@@ -7,9 +7,12 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
+-- Nem file
+map("n", "<space>e", "<cmd>enew <cr> <cmd>w ", { desc = "open nem file" })
+
 -- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+map("n", "<space>/", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<space>/", "gc", { desc = "toggle comment", remap = true })
 
 map("i", "lk", "<ESC>")
 map("i", "lj", "<ESC>v")
@@ -41,7 +44,6 @@ map("i", "´´", '""<Left>')
 -----------------
 -- NORMAL
 -- NvimTree mappings
-map("n", "<space>n", "<cmd>NvimTreeToggle<cr>", { desc = "Open NvimTree" })
 
 -- Run code
 map("n", "<space>r", "<cmd>RunCode<cr>")

@@ -1,11 +1,21 @@
 return {
-	"shaunsingh/nord.nvim",
-	lazy = true,
-	config = function()
-		vim.g.nord_contrast = true
-		vim.g.nord_disable_background = true
+	{
+		--
+		"folke/tokyonight.nvim",
+		priority = 1000, -- Make sure to load this before all the other start plugins.
+		init = function()
+			vim.cmd.colorscheme("tokyonight-night")
 
-		require("nord").load()
-		vim.cmd([[colorscheme nord]])
-	end,
+			vim.cmd.hi("Comment gui=none")
+		end,
+		config = function()
+			require("tokyonight").setup({
+				transparent = true,
+				styles = {
+					sidebars = "transparent",
+					floats = "transparent",
+				},
+			})
+		end,
+	},
 }

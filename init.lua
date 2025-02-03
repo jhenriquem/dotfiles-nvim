@@ -11,11 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_config = require "configs.lazy"
+local lazy_config = require("configs.lazy")
 
 require("lazy").setup({
-	{import = "plugins"}
-},lazy_config)
+	spec = {
+		{ import = "plugins" },
+	},
+	install = { colorscheme = { "tokionight-night" } },
+}, lazy_config)
 
-require "configs.mappings"
-require "configs.options"
+require("configs.mappings")
+require("configs.options")
