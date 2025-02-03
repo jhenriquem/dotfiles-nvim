@@ -24,8 +24,8 @@ return {
 			start = "🚀",
 			task = "📌",
 			lazy = "💤 ",
-			loaded = "✨",
-			not_loaded = "🛑",
+			loaded = "",
+			not_loaded = "",
 		},
 	},
 
