@@ -30,6 +30,9 @@ return {
 					end,
 				},
 			})
+			local map = vim.keymap.set
+
+			map("n", "<space>r", "<cmd>RunCode<cr>", { desc = "Run code" })
 		end,
 	},
 }

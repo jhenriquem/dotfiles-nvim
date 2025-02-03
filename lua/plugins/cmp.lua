@@ -51,16 +51,22 @@ return {
 					expandable_indicator = true,
 					fields = { "kind", "abbr", "menu" },
 					format = function(_, vim_item)
+						vim_item.menu = vim_item.kind
 						vim_item.kind = string.format("%s ", lspkind.symbol_map[vim_item.kind] or "")
 						return vim_item
 					end,
 				},
 
-				sources = {
-					{
-						name = "lazydev",
-						group_index = 0,
+				window = {
+					completion = {
+						scrollbar = false,
+						scrolloff = 3,
+						side_padding = 2,
 					},
+				},
+
+				sources = {
+					{ name = "nvim_lua" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },

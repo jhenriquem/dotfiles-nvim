@@ -8,6 +8,7 @@ return {
 				background_colour = "#000000",
 				render = "wrapped-compact",
 			})
+			vim.notify = require("notify")
 		end,
 	},
 }

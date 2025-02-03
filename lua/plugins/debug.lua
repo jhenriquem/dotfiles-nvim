@@ -31,16 +31,16 @@ return {
 
 			local map = vim.keymap.set
 
-			map("n", "<leader>du", "<cmd>DapUiToggle<CR>", {})
-			map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-			map("n", "<leader>dc", dap.continue, { desc = "Debuger Continue" })
-			map("n", "<leader>dt", "<cmd>DapTerminate<cr>", { desc = "Debuger Terminate" })
+			map("n", "<space>du", "<cmd>DapUiToggle<CR>", {})
+			map("n", "<space>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+			map("n", "<space>dc", dap.continue, { desc = "Debuger Continue" })
+			map("n", "<space>dt", "<cmd>DapTerminate<cr>", { desc = "Debuger Terminate" })
 
-			map("n", "<leader>dgt", function()
+			map("n", "<space>dgt", function()
 				require("dap-go").debug_test()
 			end, { desc = "Debug go test" })
 
-			map("n", "<leader>dgl", function()
+			map("n", "<space>dgl", function()
 				require("dap-go").debug_last()
 			end, { desc = "Debug last go test" })
 
