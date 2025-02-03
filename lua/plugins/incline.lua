@@ -1,8 +1,8 @@
 return {
-"b0o/incline.nvim",
-dependencies = {"nvim-tree/nvim-web-devicons"},    
-config = function()
-      local devicons = require "nvim-web-devicons"
+    "b0o/incline.nvim",
+ dependencies = {"nvim-tree/nvim-web-devicons"},
+    config = function()
+  local devicons = require "nvim-web-devicons"
 local helpers = require "incline.helpers"
 
 require("incline").setup {
@@ -105,6 +105,5 @@ require("incline").setup {
   end,
 }
     end,
-    -- Optional: Lazy load Incline
     event = "VeryLazy",
-}
+  }

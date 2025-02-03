@@ -1,6 +1,7 @@
 return {
- ui = {
-    icons =  {
+
+ui = {
+    icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
       event = '📅',
@@ -15,8 +16,4 @@ return {
       task = '📌',
       lazy = '💤 ',
     },
-  }
-}
-
-
-
+  },}

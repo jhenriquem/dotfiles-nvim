@@ -1,100 +1,63 @@
 return {
-{
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+  { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     dependencies = {
       {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        config = function(_, opts)
-          require("luasnip").config.set_config(opts)
-          -- vscode format
-require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
-require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
-
--- snipmate format
-require("luasnip.loaders.from_snipmate").load()
-require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
-
--- lua format
-require("luasnip.loaders.from_lua").load()
-require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    if
-      require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-      and not require("luasnip").session.jump_active
-    then
-      require("luasnip").unlink_current()
-    end
-  end,
-})
-        end,
-      },
-
-      -- autopairing of (){}[] etc
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+        dependencies = {
+           {
+            'rafamadriz/friendly-snippets',
+             config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+             end,
+           },
         },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
       },
+      'saadparwaiz1/cmp_luasnip',
 
-      -- cmp sources plugins
-      {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
     },
     config = function()
-      local cmp = require "cmp"
+      -- See `:help cmp`
+      local cmp = require 'cmp'
+      local luasnip = require 'luasnip'
+      luasnip.config.setup {}
 
-cmp.setup {
-      completion = { completeopt = "menu,menuone" },
+      cmp.setup {
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        completion = { completeopt = 'menu,menuone,noinsert' },
 
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+        mapping = cmp.mapping.preset.insert {
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+
+
+
+        ['<C-o>'] = cmp.mapping.confirm { select = true },
+        },
+        sources = {
+          {
+            name = 'lazydev',
+            group_index = 0,
+          },
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+          {name = "buffer"},
+        },
+      }
     end,
   },
-
-  mapping = {
-    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-    ["<C-o>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
-    ["<C-Space>"] = cmp.mapping.complete(),
-  },
-  window = {
-    completion = {
-      border = "rounded",
-    },
-  },
-
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
-  },}
-    end,
-  },
-
 }

@@ -1,21 +1,14 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"javascript",
-				"typescript",
-				"css",
-				"gitignore",
-				"json",
-				"vim",
-				"lua",
-			},
-			query_linter = {
-				enable = true,
-				use_virtual_text = true,
-				lint_events = { "BufWrite", "CursorHold" },
-			},
-		},
-	},
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    opts = {
+      ensure_installed = {},
+      auto_install = true,
+      highlight = {
+        enable = true,
+      },
+    },
+  },
 }
