@@ -31,7 +31,8 @@ o.ignorecase = true
 o.smartcase = true
 o.mouse = ""
 
-o.number = true
+opt.number = true
+opt.relativenumber = true
 o.numberwidth = 2
 o.ruler = false
 

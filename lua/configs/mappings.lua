@@ -8,7 +8,7 @@ map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
 -- Nem file
-map("n", "<space>e", ":enew<CR>:w ", { desc = "Open nem file", silent = true })
+map("n", "<space>e", "<cmd>enew <cr>", { desc = "Open nem file", silent = true })
 
 -- Comment
 map("n", "<space>/", "gcc", { desc = "toggle comment", remap = true })
