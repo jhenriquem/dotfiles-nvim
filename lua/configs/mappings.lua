@@ -61,8 +61,6 @@ map("n", "<space>mt", "<cmd>MarkdownPreviewToggle<cr>")
 
 ------------------------------------------------
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-
 map("n", "<space>a", "<cmd>bp<cr>")
 map("n", "<space>x", "<cmd>bd<cr>")
 map("n", "<space>d", "<cmd>bn<cr>")

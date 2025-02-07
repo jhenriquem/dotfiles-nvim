@@ -17,7 +17,7 @@ return {
 					hidden = false,
 				})
 			end,
-			desc = "Lists files in your current working directory, respects .gitignore",
+			desc = "Find Files",
 		},
 		{
 			";r",
@@ -25,7 +25,7 @@ return {
 				local builtin = require("telescope.builtin")
 				builtin.live_grep()
 			end,
-			desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
+			desc = "Search for a string",
 		},
 		{
 			"\\\\",
@@ -41,16 +41,33 @@ return {
 				local builtin = require("telescope.builtin")
 				builtin.resume()
 			end,
-			desc = "Resume the previous telescope picker",
+			desc = "Previous telescope picker",
 		},
 		{
-			";e",
+			";d",
 			function()
 				local builtin = require("telescope.builtin")
 				builtin.diagnostics()
 			end,
-			desc = "Lists Diagnostics for all open buffers or a specific buffer",
+			desc = "Lists Diagnostics",
 		},
+		{
+			";gs",
+			function()
+				local builtin = require("telescope.builtin")
+				builtin.git_status()
+			end,
+			desc = "Git status",
+		},
+		{
+			";gc",
+			function()
+				local builtin = require("telescope.builtin")
+				builtin.git_commits()
+			end,
+			desc = "Git commits",
+		},
+
 		{
 			";s",
 			function()
@@ -61,7 +78,7 @@ return {
 					hidden = false,
 				})
 			end,
-			desc = "Open File Browser with the path of the current buffer",
+			desc = "Open File Browser",
 		},
 	},
 	config = function()
