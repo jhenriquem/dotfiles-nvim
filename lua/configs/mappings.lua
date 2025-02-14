@@ -1,11 +1,19 @@
 local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
------------------
--- INSERT
+-- Buffers
+map("n", "<space>n", ":bnext<CR>", opts)
+map("n", "<space>p", ":bprev<CR>", opts)
+map("n", "<space>x", ":bdelete<CR>", opts)
+
+-- Movement
 map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
+
+map("n", "<a-,>", "0")
+map("n", "<a-.>", "$")
 
 -- Nem file
 map("n", "<space>e", "<cmd>enew <cr>", { desc = "Open nem file", silent = true })
@@ -14,9 +22,11 @@ map("n", "<space>e", "<cmd>enew <cr>", { desc = "Open nem file", silent = true }
 map("n", "<space>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<space>/", "gc", { desc = "toggle comment", remap = true })
 
+-- ESC
 map("i", "lk", "<ESC>")
 map("i", "lj", "<ESC>v")
 
+-- Characters
 map("i", "<a-,>", "$")
 map("i", "<a-.>", "&")
 map("i", "<a-;>", "!")
@@ -41,45 +51,18 @@ map("i", "]]", ")")
 map("i", "~~", "''<Left>")
 map("i", "´´", '""<Left>')
 
------------------
--- NORMAL
--- NvimTree mappings
-
--- Run code
-map("n", "<space>r", "<cmd>RunCode<cr>")
-
-------------------------------------------------
-
--- Movimentação na linha
-map("n", "<a-,>", "0")
-map("n", "<a-.>", "$")
-
---Markdown Preview mappings
-map("n", "<space>mp", "<cmd>MarkdownPreview<cr>")
-map("n", "<space>ms", "<cmd>MarkdownPreviewStop<cr>")
-map("n", "<space>mt", "<cmd>MarkdownPreviewToggle<cr>")
-
-------------------------------------------------
-
-map("n", "<space>a", "<cmd>bp<cr>")
-map("n", "<space>x", "<cmd>bd<cr>")
-map("n", "<space>d", "<cmd>bn<cr>")
-
--- Select all
+-- Select and copy
 map("n", "<C-a>", "gg<S-v>G")
+map("v", "<c-y>", '"+y')
 
--- Move window
-map("", "<space>h", "<C-w>h")
-map("", "<space>k", "<C-w>k")
-map("", "<space>j", "<C-w>j")
-map("", "<space>l", "<C-w>l")
+-- Panes
+map("n", "<c-h>", "<c-w>h", opts)
+map("n", "<c-j>", "<c-w>j", opts)
+map("n", "<c-k>", "<c-w>k", opts)
+map("n", "<c-l>", "<c-w>l", opts)
 
 -- Resize window
 map("n", "<C-right>", "<C-w><")
 map("n", "<C-left>", "<C-w>>")
 map("n", "<C-up>", "<C-w>+")
 map("n", "<C-down>", "<C-w>-")
-
------------------
--- VISUAL
-map("v", "<c-y>", '"+y')

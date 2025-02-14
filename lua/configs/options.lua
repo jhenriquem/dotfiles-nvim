@@ -2,11 +2,12 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
-opt.laststatus = 0
-opt.cmdheight = 0
+-- opt.laststatus = 0
+-- opt.cmdheight = 0
 opt.scrolloff = 8
+opt.sidescrolloff = 8
 
-vim.o.shell = "cmd.exe"
+-- vim.o.shell = "cmd.exe"
 
 vim.o.wrap = true
 vim.o.breakindent = true

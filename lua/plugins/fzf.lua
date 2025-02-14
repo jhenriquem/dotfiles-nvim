@@ -10,7 +10,8 @@ return {
 			},
 			winopts = {
 				preview = {
-					layout = "horizontal",
+					hidden = true,
+					layout = "flex",
 				},
 			},
 		})

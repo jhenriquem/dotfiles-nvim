@@ -3,43 +3,34 @@ return {
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
-		keys = {
-			{
-				"<leader>c",
-				function()
-					require("conform").format({ async = true, lsp_format = "fallback" })
-				end,
-				mode = "",
+		config = function()
+			local conform = require("conform")
+
+			conform.setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					typescript = { "prettierd" },
+					typescriptreact = { "prettierd" },
+					javascript = { "prettierd" },
+					javascriptreact = { "prettierd" },
+					html = { "prettierd" },
+					css = { "prettierd" },
+					markdown = { "prettierd" },
+					json = { "prettier" },
+					go = { "gofumpt", "goimports" },
+				},
+				format_on_save = {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 1000,
+				},
+			})
+
+			vim.keymap.set("n", "<space>c", function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end, {
 				desc = "[F]ormat buffer",
-			},
-		},
-		opts = {
-			notify_on_error = false,
-			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
-				local lsp_format_opt
-				if disable_filetypes[vim.bo[bufnr].filetype] then
-					lsp_format_opt = "never"
-				else
-					lsp_format_opt = "fallback"
-				end
-				return {
-					timeout_ms = 500,
-					lsp_format = lsp_format_opt,
-				}
-			end,
-			formatters_by_ft = {
-				lua = { "stylua" },
-				css = { "prettier" },
-				html = { "prettier" },
-				javascript = { "prettier" },
-				typescript = { "ts-standard" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "ts-standard" },
-				ejs = { "prettier" },
-				json = { "prettier" },
-				go = { "gofumpt", "goimports" },
-			},
-		},
+			})
+		end,
 	},
 }

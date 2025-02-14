@@ -17,8 +17,9 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 	},
-	install = { colorscheme = { "tokyonight-night" } },
+	install = { colorscheme = { "shadow" } },
 }, lazy_config)
 
 require("configs.mappings")
 require("configs.options")
+require("configs.statusline")
