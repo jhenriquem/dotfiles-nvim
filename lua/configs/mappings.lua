@@ -23,6 +23,8 @@ map("n", "<space>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<space>/", "gc", { desc = "toggle comment", remap = true })
 
 -- ESC
+map("i", "<ESC>", "")
+
 map("i", "lk", "<ESC>")
 map("i", "lj", "<ESC>v")
 
@@ -47,6 +49,8 @@ map("i", "[[", function()
 end)
 
 map("i", "]]", ")")
+
+map("i", "S-9", "")
 
 map("i", "~~", "''<Left>")
 map("i", "´´", '""<Left>')

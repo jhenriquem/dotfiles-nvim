@@ -7,10 +7,11 @@ return {
 			files = {
 				git_icons = true,
 				no_ignore = true,
+				prompt = "Files ❯ ",
 			},
 			winopts = {
 				preview = {
-					hidden = true,
+					-- hidden = true,
 					layout = "flex",
 				},
 			},
@@ -18,7 +19,7 @@ return {
 
 		local map = vim.keymap.set
 		map("n", ";f", "<cmd>FzfLua files<cr>", { desc = "Search files" })
-		map("n", ";b", "<cmd>FzfLua buffers<cr>", { desc = "Open buffers" })
+		map("n", "\\\\", "<cmd>FzfLua buffers<cr>", { desc = "Open buffers" })
 		map("n", ";l", "<cmd>FzfLua live_grep<cr>", { desc = "Search" })
 
 		map("n", ";d", "<cmd>FzfLua diagnostics_document<cr>", { desc = "List diagnostics" })
