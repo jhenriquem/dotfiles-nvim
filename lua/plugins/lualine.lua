@@ -24,7 +24,11 @@ local config = function()
 				},
 				{ "diff", symbols = { added = "+ ", modified = "~ ", removed = "- " } },
 			},
-			lualine_x = { "filetype", { "location", color = { fg = "#E0AF68" } } },
+			lualine_x = {
+				{ "diagnostics", symbols = { error = " ", warn = " ", hint = " ", info = " " } },
+				"filetype",
+				{ "location", color = { fg = "#E0AF68" } },
+			},
 			lualine_y = {},
 			lualine_z = {},
 			-- These will be filled later
